@@ -2,10 +2,12 @@ package dia_1;
 
 import dia_2.classes.Persona;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+import static java.util.Arrays.stream;
 import static java.util.HashSet.newHashSet;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -99,33 +101,36 @@ public class Main {
 
 //        8. Cree un método que reciba una matriz de números e imprima los números pares y la suma de los números primos.
 
-        int[] numeros = new int[6];
-
-        for (int i = 0; i < 5; i++) {
-            System.out.println("Ingresa un numero para la posición " + i);
-            numeros[i]=prompt.nextInt();
-        }
-
-        String pares = "Estos numeros son pares:  ";
-        String primosCadena = "Estos numeros son primos:  ";
-        int[] sonpares = pares(numeros);
-        int[] sonprimos = primos(numeros);
-
-        for (int i = 0; i < sonpares.length; i++) {
-
-            if (sonpares[i] != 0) {
-                pares = pares + sonpares[i] + ", ";
-            }
-
-        }
-        System.out.println(pares);
-
-
-        for (int i = 0; i < sonprimos.length; i++) {
-            primosCadena = primosCadena + sonprimos[i] + ", ";
-
-        }
-        System.out.println(primosCadena);
+//        int[] numeros = new int[6];
+//
+//        for (int i = 0; i < 5; i++) {
+//            System.out.println("Ingresa un numero para la posición " + i);
+//            numeros[i]=prompt.nextInt();
+//        }
+//
+//        String pares = "Estos numeros son pares:  ";
+//        String primosCadena = "Estos numeros son primos:  ";
+//        int[] sonpares = pares(numeros);
+//        int[] sonprimos = primos(numeros);
+//
+//        for (int i = 0; i < sonpares.length; i++) {
+//
+//            if (sonpares[i] != 0) {
+//                pares = pares + sonpares[i] + ", ";
+//            }
+//
+//        }
+//        System.out.println(pares);
+//
+//
+//        for (int i = 0; i < sonprimos.length; i++) {
+//
+//            if(sonprimos[i]!=0){
+//            primosCadena = primosCadena + sonprimos[i] + ", ";
+//            }
+//
+//        }
+//        System.out.println(primosCadena);
 
 
 //
@@ -235,16 +240,14 @@ public class Main {
 
     ;
 
-    public static Boolean esPrimo(int[] numero) {
+    public static Boolean esPrimo(int numero) {
 
         boolean esPrimo = true;
-
-
-        for (int i = 2; i <= numero.len / 2; i++) {
+        for (int i = 2; i <= Math.sqrt(numero); i++) {
 
             int resto;
             resto = numero % i;
-            System.out.println(numero + " dividido " + i + " da el resto " + resto);
+            //System.out.println(numero + " dividido " + i + " da el resto " + resto);
 
             if (resto == 0) {
                 esPrimo = false;
@@ -284,24 +287,16 @@ public class Main {
 
     public static int[] primos(int[] numeros) {
 
-        int[] auxPar = new int[numeros.length];
+        int[] auxPrimo = new int[numeros.length];
 
-        boolean esPrimo = true;
+        for (int i = 0; i < numeros.length; i++) {
 
-
-        for (int i = 2; i <= numero.len / 2; i++) {
-
-            int resto;
-            resto = numero % i;
-            System.out.println(numero + " dividido " + i + " da el resto " + resto);
-
-            if (resto == 0) {
-                esPrimo = false;
-                break;
+            if (esPrimo(numeros[i])){
+                auxPrimo[i]=numeros[i];
             }
         }
 
-        return auxPar;
+        return auxPrimo;
     }
 
 
